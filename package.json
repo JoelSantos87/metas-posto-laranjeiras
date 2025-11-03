@@ -1,27 +1,38 @@
 {
-  "name": "metas-posto-laranjeiras",
+  "name": "metas-de-vendas",
   "version": "1.0.0",
-  "type": "module",
+  "private": true,
   "scripts": {
     "dev": "next dev",
+    "build": "next build",
     "start": "next start",
-    "seed": "node prisma/seed.js",
-    "postinstall": "npm run seed"
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:generate": "prisma generate",
+    "prisma:seed": "ts-node prisma/seed.ts",
+    "check": "node scripts/check-files.js",
+    "test:checks": "node tests/run-checks.js"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   },
   "dependencies": {
-    "@prisma/client": "^6.18.0",
-    "bcryptjs": "^2.4.3",
-    "express": "^4.18.2",
-    "jsonwebtoken": "^9.0.2",
-    "next": "^16.0.1",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "@prisma/client": "^5.9.0",
+    "bcrypt": "^5.1.0",
+    "framer-motion": "^10.12.6",
+    "next": "^13.5.8",
+    "next-auth": "^4.22.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.4.18"
   },
   "devDependencies": {
-    "@types/node": "24.9.2",
+    "@types/bcrypt": "^6.0.0",
+    "@types/node": "^24.10.0",
     "@types/react": "19.2.2",
-    "nodemon": "^3.0.1",
-    "prisma": "^6.18.0",
-    "typescript": "5.9.3"
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "prisma": "^5.9.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   }
 }
